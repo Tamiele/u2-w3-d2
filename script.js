@@ -41,15 +41,16 @@ removeName.addEventListener("click", reset);
 form.addEventListener("submit", saveInput);
 
 ultimoElemento();
+
 //secondo esercizio
 /*● Crea un contatore che tenga conto del tempo che passa, utilizzando sessionStorage. 
 Aggiornando la pagina il valore prosegue, chiudendo la pagina - ovviamente - ricomincia. Il valore del contatore deve aggiornarsi ad ogni secondo. */
 
-let timeLeft = 60; // Imposta il tempo iniziale (60 secondi)
+let timeLeft = 60; // counter che Imposta il tempo iniziale (60 secondi)
 
 const tempoSalvato = sessionStorage.getItem("tempo");
 if (tempoSalvato) {
-  timeLeft = parseInt(tempoSalvato); // Se c'è un valore, usa quello al posto di 60
+  timeLeft = parseInt(tempoSalvato); // Se c'è un valore, usa quello al posto di 60 e lo trasforma in valore numerico con parseint
 }
 
 const countdown = setInterval(function () {
@@ -63,6 +64,7 @@ const countdown = setInterval(function () {
   timeLeft -= 1; // Decrementa il tempo
 }, 1000); // Intervallo di 1 secondo (1000 ms)
 
+//funzione che non interrompe il timer quando si aggiorna la pagina
 const recuperoUltimoElementoSalvato = function () {
   const tempoRimanente = sessionStorage.getItem("tempo");
 
